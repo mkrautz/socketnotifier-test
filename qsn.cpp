@@ -54,6 +54,8 @@ int main(int argc, char **argv) {
 		exit(1);
 	}
 
+	fprintf(stderr, "main:  tsock=%i,  mainsock=%i\n", fd[0], fd[1]);
+
 	if (pthread_create(&thr, NULL, thr_func, &fd[0]) == -1) {
 		fprintf(stderr, "pthread_create: %s\n", strerror(errno));
 		exit(1);
