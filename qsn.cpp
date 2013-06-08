@@ -70,5 +70,12 @@ int main(int argc, char **argv) {
 	QCoreApplication a(argc, argv);
 	QSNTester *qsnt = new QSNTester(fd[1], NULL);
 	(void) qsnt;
-	a.exec();
+	
+	unsigned long i;
+	while (1) {
+		qWarning("main: main loop iter %lu entry", i);
+		a.processEvents();
+		qWarning("main: main loop iter %lu exit", i);
+		++i;
+	}
 }
